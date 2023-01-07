@@ -1,6 +1,11 @@
 const {Client, GatewayIntentBits, EmbedBuilder, TextChannel} = require('discord.js');
 
-const { token } = require('./config.json');
+
+require('dotenv').config()
+
+
+const token = process.env.TOKEN
+
 
 const verify = require('./search').isStudent;
 

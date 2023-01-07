@@ -1,5 +1,8 @@
 const { REST, SlashCommandBuilder, Routes } = require('discord.js');
-const { clientId, guildId, token } = require('./config.json');
+
+require('dotenv').config()
+const clientId = process.env.CLIENTID
+const guildId = process.env.GUILDID
 
 const commands = [
 	new SlashCommandBuilder().setName('verify').setDescription('Automated check for ENSIA students using the correct full name.')
