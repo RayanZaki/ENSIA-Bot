@@ -12,6 +12,9 @@
     "BOT"
   ],
   "author": "Rayan Zakaria HASSICI",
+  "engines" : { 
+    "node" : ">=14.0.0"
+  },
   "license": "ISC",
   "dependencies": {
     "@discordjs/builders": "^1.2.0",
