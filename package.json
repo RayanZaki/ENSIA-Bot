@@ -1,0 +1,21 @@
+{
+  "name": "ensia-helper",
+  "version": "1.0.0",
+  "description": "Discord Bot to help moderize the School's server",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Discord",
+    "ENSIA",
+    "BOT"
+  ],
+  "author": "Rayan Zakaria HASSICI",
+  "license": "ISC",
+  "dependencies": {
+    "@discordjs/builders": "^1.2.0",
+    "discord.js": "^14.5.0",
+    "nodemon": "^2.0.20"
+  }
+}
