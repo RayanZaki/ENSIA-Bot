@@ -3,6 +3,17 @@ const {Client, GatewayIntentBits, EmbedBuilder, TextChannel} = require('discord.
 
 require('dotenv').config()
 
+const express = require("express");
+
+const app = express()
+
+app.head("/", (req, res)=> {
+    res.send("pinged");
+});
+
+app.get("/", (req, res)=> {
+    res.send("pinged");
+});
 
 const token = process.env.TOKEN
 
@@ -62,3 +73,5 @@ discord.on("interactionCreate", async (interaction) => {
 
 
 discord.login(token);
+
+app.listen(process.env.PORT || 3000);
