@@ -43,7 +43,7 @@ discord.on("interactionCreate", async (interaction) => {
             const student = await require('./contacts.json')[email];
             
             if (verify(email)){       // check if ENSIA student
-                const name = student[0].split(" ").slice(0, student[0].split(" ").length - 1).toString().replace(',', ' ');
+                const name = student[0];
                 const year = student[1];
 
                 await interaction.member.setNickname(name); 
