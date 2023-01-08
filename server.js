@@ -3,8 +3,11 @@ const {Client, GatewayIntentBits, EmbedBuilder, TextChannel} = require('discord.
 
 require('dotenv').config()
 
-const express = require("express");
 
+
+// Creating an http endpoint
+
+const express = require("express");
 const app = express()
 
 app.head("/", (req, res)=> {
@@ -14,6 +17,7 @@ app.head("/", (req, res)=> {
 app.get("/", (req, res)=> {
     res.send("pinged");
 });
+
 
 const token = process.env.TOKEN
 
@@ -30,6 +34,7 @@ const discord = new Client({
 discord.once("ready", () => {
     console.log('listening');
 });
+
 discord.on("interactionCreate", async (interaction) => {
     try {
         if( interaction.channel.id != 1004682149179424798 ) { 
