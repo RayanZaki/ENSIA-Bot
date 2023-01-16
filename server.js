@@ -1,4 +1,4 @@
-const {Client, GatewayIntentBits, EmbedBuilder, TextChannel} = require('discord.js');
+const {Client, GatewayIntentBits, EmbedBuilder, ActivityType} = require('discord.js');
 
 
 require('dotenv').config()
@@ -27,13 +27,20 @@ const verify = require('./search').isStudent;
 
 // Initaliazing the Discord CLient
 const discord = new Client({
-    intents:[ GatewayIntentBits.Guilds]
+    intents:[ GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages]
 });
 
 // Starting up
 discord.once("ready", () => {
     console.log('listening');
+    discord.user.setActivity(
+        'ENSIA Students',
+        {
+            type: ActivityType.Watching
+        }
+    )
 });
+
 
 discord.on("interactionCreate", async (interaction) => {
     try {
@@ -69,6 +76,7 @@ discord.on("interactionCreate", async (interaction) => {
         }
     }
     
+
 } catch (err){
     await interaction.reply({content:"An Error has occured, Please contact a moderation member!", ephemeral:true});
     console.log(err);
