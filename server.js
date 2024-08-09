@@ -49,7 +49,6 @@ discord.once("ready", () => {
 
 discord.on("messageCreate", async (message) => {
     try {
-        console.log(message);
     // if( message.channel.id !== ROLE_SELECT_CHANNEL_ID) return; 
     if (message.attachments.size > 0) {
         message.attachments.forEach(async (att) => {
@@ -65,6 +64,7 @@ discord.on("messageCreate", async (message) => {
                     .setDescription('Please Be respectfull to the memebres of the server')
                     .setThumbnail("https://cdn.discordapp.com/attachments/883123349553831967/1003753214698590248/weee.png");
                     const role = message.guild.roles.cache.find(role => role.name === ROLES[1]);
+                    console.log(role);
                     const pending = message.guild.roles.cache.find(role => role.name === ROLES[-1]);
                     const ensia_pending = message.guild.roles.cache.find(role => role.name === ROLES[0])
                     await message.reply({embeds: [embed],  ephemeral: true});
