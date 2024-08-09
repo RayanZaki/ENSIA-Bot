@@ -63,10 +63,10 @@ discord.on("messageCreate", async (message) => {
                     .setTitle(`Welcome To ENSIA server!`)
                     .setDescription('Please Be respectfull to the memebres of the server')
                     .setThumbnail("https://cdn.discordapp.com/attachments/883123349553831967/1003753214698590248/weee.png");
-                    const role = message.guild.roles.cache.find(role => role.name === ROLES[1]);
+                    const role = ROLES[1];
                     console.log(role);
-                    const pending = message.guild.roles.cache.find(role => role.name === ROLES[-1]);
-                    const ensia_pending = message.guild.roles.cache.find(role => role.name === ROLES[0])
+                    const pending = ROLES[-1];
+                    const ensia_pending = ROLES[0];
                     await message.reply({embeds: [embed],  ephemeral: true});
                     await message.member.roles.add(role);
                     await message.member.roles.remove(pending);
@@ -106,9 +106,9 @@ discord.on("interactionCreate", async (interaction) => {
                 .setThumbnail("https://cdn.discordapp.com/attachments/883123349553831967/1003753214698590248/weee.png");
                 
 
-                const role = interaction.guild.roles.cache.find(role => role.name === ROLES[year]);
-                const pending = interaction.guild.roles.cache.find(role => role.name === ROLES[-1]);
-                const ensia_pending = interaction.guild.roles.cache.find(role => role.name === ROLES[0]);
+                const role = ROLES[year];
+                const pending = ROLES[-1];
+                const ensia_pending = ROLES[0];
 
                 await interaction.reply({embeds: [embed]});
                 await interaction.member.roles.add(role);
