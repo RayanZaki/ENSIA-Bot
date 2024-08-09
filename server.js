@@ -24,6 +24,8 @@ const token = process.env.TOKEN
 
 const ROLES = JSON.parse(process.env.ROLES)
 
+console.log(ROLES)
+
 const ROLE_SELECT_CHANNEL_ID = process.env.ROLE_SELECT_CHANNEL_ID;
 
 const verify = require('./search').isStudent;
@@ -67,10 +69,10 @@ discord.on("messageCreate", async (message) => {
                     console.log(role);
                     const pending = ROLES[-1];
                     const ensia_pending = ROLES[0];
-                    await message.reply({embeds: [embed],  ephemeral: true});
                     await message.member.roles.add(role);
                     await message.member.roles.remove(pending);
                     await message.member.roles.remove(ensia_pending);
+                    await message.reply({embeds: [embed],  ephemeral: true});
                 }
             }
         })
