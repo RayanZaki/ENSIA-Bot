@@ -50,7 +50,7 @@ discord.once("ready", () => {
 discord.on("messageCreate", async (message) => {
     try {
         console.log(message);
-    if( message.channel.id !== ROLE_SELECT_CHANNEL_ID) return; 
+    // if( message.channel.id !== ROLE_SELECT_CHANNEL_ID) return; 
     if (message.attachments.size > 0) {
         message.attachments.forEach(async (att) => {
             if (att.contentType.startsWith("image/")) 
