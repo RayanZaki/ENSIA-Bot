@@ -30,6 +30,4 @@ const checkValidity = async (path) => {
 }
 
 
-( async () => {
-    console.log(await checkValidity("lk.jpg"));
-})()
+module.exports = {checkValidity} 
