@@ -67,8 +67,8 @@ discord.on("messageCreate", async (message) => {
                     .setThumbnail("https://cdn.discordapp.com/attachments/883123349553831967/1003753214698590248/weee.png");
                     const role = ROLES[1];
                     console.log(role);
-                    const pending = ROLES[-1];
-                    const ensia_pending = ROLES[0];
+                    const pending = ROLES["pending"];
+                    const ensia_pending = ROLES["ensia-pending"];
                     await message.member.roles.add(role);
                     await message.member.roles.remove(pending);
                     await message.member.roles.remove(ensia_pending);
@@ -109,8 +109,8 @@ discord.on("interactionCreate", async (interaction) => {
                 
 
                 const role = ROLES[year];
-                const pending = ROLES[-1];
-                const ensia_pending = ROLES[0];
+                const pending = ROLES["pending"];
+                const ensia_pending = ROLES['ensia-pending'];
 
                 await interaction.reply({embeds: [embed]});
                 await interaction.member.roles.add(role);
