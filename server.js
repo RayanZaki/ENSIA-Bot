@@ -69,9 +69,14 @@ discord.on("messageCreate", async (message) => {
                     console.log(role);
                     const pending = ROLES["pending"];
                     const ensia_pending = ROLES["ensia-pending"];
-                    await message.member.roles.add(role);
-                    await message.member.roles.remove(pending);
-                    await message.member.roles.remove(ensia_pending);
+                    try {
+                        await message.member.roles.add(role);
+                        await message.member.roles.remove(pending);
+                        await message.member.roles.remove(ensia_pending);
+                    } catch (error) {
+                        console.error('Error adding role:', error);
+                        message.reply('Failed to add role.');
+                    }
                     await message.reply({embeds: [embed],  ephemeral: true});
                 }
             }
