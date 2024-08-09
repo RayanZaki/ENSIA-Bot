@@ -49,19 +49,21 @@ discord.once("ready", () => {
 
 discord.on("messageCreate", async (message) => {
     try {
-    if( message.channel.id != ROLE_SELECT_CHANNEL_ID) return; 
+        console.log(message);
+    if( message.channel.id !== ROLE_SELECT_CHANNEL_ID) return; 
     if (message.attachments.size > 0) {
         message.attachments.forEach(async (att) => {
             if (att.contentType.startsWith("image/")) 
             {
                 const valid = await checkValidity(att.url);
 
-                const embed = new EmbedBuilder()
-                .setTitle(`Welcome To ENSIA server!`)
-                .setDescription('Please Be respectfull to the memebres of the server')
-                .setThumbnail("https://cdn.discordapp.com/attachments/883123349553831967/1003753214698590248/weee.png");
                 
+                console.log(valid);
                 if (valid) {
+                    const embed = new EmbedBuilder()
+                    .setTitle(`Welcome To ENSIA server!`)
+                    .setDescription('Please Be respectfull to the memebres of the server')
+                    .setThumbnail("https://cdn.discordapp.com/attachments/883123349553831967/1003753214698590248/weee.png");
                     const role = message.guild.roles.cache.find(role => role.name === ROLES[1]);
                     const pending = message.guild.roles.cache.find(role => role.name === ROLES[-1]);
                     const ensia_pending = message.guild.roles.cache.find(role => role.name === ROLES[0])
@@ -80,9 +82,9 @@ discord.on("messageCreate", async (message) => {
 })
 discord.on("interactionCreate", async (interaction) => {
     try {
-        if( interaction.channel.id !== "1271531420673638421" ) { 
+        if( interaction.channel.id !== ROLE_SELECT_CHANNEL_ID ) { 
             console.log(interaction.channel.id);
-            // await interaction.reply({content: "I don't have access to this channel :')", ephemeral: true});
+            await interaction.reply({content: "I don't have access to this channel :')", ephemeral: true});
             return;
         }
         if (!interaction.isChatInputCommand()) return;          // Only check for chat input commands

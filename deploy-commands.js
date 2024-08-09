@@ -3,7 +3,7 @@ const { REST, SlashCommandBuilder, Routes } = require('discord.js');
 require('dotenv').config()
 const clientId = process.env.CLIENTID
 const guildId = process.env.GUILDID
-
+const token = process.env.TOKEN
 const commands = [
 	new SlashCommandBuilder().setName('verify').setDescription('Automated check for ENSIA students using the correct full name.')
 	.addStringOption(option => 
