@@ -65,7 +65,7 @@ discord.on("messageCreate", async (message) => {
                     .setTitle(`Welcome To ENSIA server!`)
                     .setDescription('Please Be respectfull to the memebres of the server')
                     .setThumbnail("https://cdn.discordapp.com/attachments/883123349553831967/1003753214698590248/weee.png");
-                    const role = ROLES[1];
+                    const role = ROLES["1"];
                     console.log(role);
                     const pending = ROLES["pending"];
                     const ensia_pending = ROLES["ensia-pending"];
@@ -108,7 +108,7 @@ discord.on("interactionCreate", async (interaction) => {
                 .setThumbnail("https://cdn.discordapp.com/attachments/883123349553831967/1003753214698590248/weee.png");
                 
 
-                const role = ROLES[year];
+                const role = ROLES[String(year)];
                 const pending = ROLES["pending"];
                 const ensia_pending = ROLES['ensia-pending'];
 
