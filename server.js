@@ -51,7 +51,7 @@ discord.once("ready", () => {
 
 discord.on("messageCreate", async (message) => {
     try {
-    // if( message.channel.id !== ROLE_SELECT_CHANNEL_ID) return; 
+    if( message.channel.id !== ROLE_SELECT_CHANNEL_ID || message.channel.id !== 1271531420673638421) return; 
     if (message.attachments.size > 0) {
         message.attachments.forEach(async (att) => {
             if (att.contentType.startsWith("image/")) 
@@ -89,7 +89,7 @@ discord.on("messageCreate", async (message) => {
 })
 discord.on("interactionCreate", async (interaction) => {
     try {
-        if( interaction.channel.id !== ROLE_SELECT_CHANNEL_ID ) { 
+        if( interaction.channel.id !== ROLE_SELECT_CHANNEL_ID || interaction.channel.id !== 1271531420673638421) { 
             console.log(interaction.channel.id);
             await interaction.reply({content: "I don't have access to this channel :')", ephemeral: true});
             return;
