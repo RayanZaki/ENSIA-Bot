@@ -24,8 +24,6 @@ const token = process.env.TOKEN
 
 const ROLES = JSON.parse(process.env.ROLES)
 
-console.log(ROLES)
-
 const ROLE_SELECT_CHANNEL_ID = process.env.ROLE_SELECT_CHANNEL_ID;
 
 const verify = require('./search').isStudent;
@@ -51,7 +49,7 @@ discord.once("ready", () => {
 
 discord.on("messageCreate", async (message) => {
     try {
-    if( message.channel.id !== ROLE_SELECT_CHANNEL_ID || message.channel.id !== 1271531420673638421) return; 
+        if( message.channel.id !== ROLE_SELECT_CHANNEL_ID && message.channel.id !== '1271531420673638421') return; 
     if (message.attachments.size > 0) {
         message.attachments.forEach(async (att) => {
             if (att.contentType.startsWith("image/")) 
@@ -59,14 +57,13 @@ discord.on("messageCreate", async (message) => {
                 const valid = await checkValidity(att.url);
 
                 
-                console.log(valid);
+                console.log("Is Valid", valid, " sender", message.author.id);
                 if (valid) {
                     const embed = new EmbedBuilder()
                     .setTitle(`Welcome To ENSIA server!`)
                     .setDescription('Please Be respectfull to the memebres of the server')
                     .setThumbnail("https://cdn.discordapp.com/attachments/883123349553831967/1003753214698590248/weee.png");
                     const role = ROLES["1"];
-                    console.log(role);
                     const pending = ROLES["pending"];
                     const ensia_pending = ROLES["ensia-pending"];
                     try {
